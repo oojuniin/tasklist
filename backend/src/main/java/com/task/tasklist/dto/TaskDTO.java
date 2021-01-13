@@ -3,6 +3,7 @@ package com.task.tasklist.dto;
 import java.io.Serializable;
 
 import com.task.tasklist.entities.Task;
+import com.task.tasklist.enums.TaskStatus;
 
 public class TaskDTO implements Serializable {
 
@@ -11,20 +12,23 @@ public class TaskDTO implements Serializable {
 	private Long id;
 	private String tittle;
 	private String description;
+	private TaskStatus status;
 
 	public TaskDTO() {
 	}
 
-	public TaskDTO(Long id, String tittle, String description) {
+	public TaskDTO(Long id, String tittle, String description, TaskStatus status) {
 		this.id = id;
 		this.tittle = tittle;
 		this.description = description;
+		this.status = status;
 	}
 
 	public TaskDTO(Task task) {
 		this.id = task.getId();
 		this.tittle = task.getTittle();
 		this.description = task.getDescription();
+		this.status = task.getStatus();
 	}
 
 	public Long getId() {
@@ -49,6 +53,14 @@ public class TaskDTO implements Serializable {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public TaskStatus getStatus() {
+		return status;
+	}
+
+	public void setStatus(TaskStatus status) {
+		this.status = status;
 	}
 
 	@Override

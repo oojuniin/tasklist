@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.task.tasklist.enums.TaskStatus;
+
 @Entity
 @Table(name = "td_task")
 public class Task implements Serializable {
@@ -19,14 +21,16 @@ public class Task implements Serializable {
 	private Long id;
 	private String tittle;
 	private String description;
+	private TaskStatus status;
 
 	public Task() {
 	}
 
-	public Task(Long id, String tittle, String description) {
+	public Task(Long id, String tittle, String description, TaskStatus status) {
 		this.id = id;
 		this.tittle = tittle;
 		this.description = description;
+		this.status = status;
 	}
 
 	public Long getId() {
@@ -51,6 +55,14 @@ public class Task implements Serializable {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public TaskStatus getStatus() {
+		return status;
+	}
+
+	public void setStatus(TaskStatus status) {
+		this.status = status;
 	}
 
 	@Override
