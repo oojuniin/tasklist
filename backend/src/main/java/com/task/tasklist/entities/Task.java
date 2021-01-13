@@ -11,7 +11,7 @@ import javax.persistence.Table;
 import com.task.tasklist.enums.TaskStatus;
 
 @Entity
-@Table(name = "td_task")
+@Table(name = "tb_task")
 public class Task implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -19,16 +19,16 @@ public class Task implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String tittle;
+	private String title;
 	private String description;
 	private TaskStatus status;
 
 	public Task() {
 	}
 
-	public Task(Long id, String tittle, String description, TaskStatus status) {
+	public Task(Long id, String title, String description, TaskStatus status) {
 		this.id = id;
-		this.tittle = tittle;
+		this.title = title;
 		this.description = description;
 		this.status = status;
 	}
@@ -41,12 +41,12 @@ public class Task implements Serializable {
 		this.id = id;
 	}
 
-	public String getTittle() {
-		return tittle;
+	public String getTitle() {
+		return title;
 	}
 
-	public void setTittle(String tittle) {
-		this.tittle = tittle;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	public String getDescription() {
