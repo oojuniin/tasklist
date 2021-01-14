@@ -1,4 +1,4 @@
-package com.task.tasklist.exception;
+package com.task.tasklist.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.task.tasklist.entities.Task;
-import com.task.tasklist.service.TaskService;
+import com.task.tasklist.services.TaskService;
 
 @RestController
 @RequestMapping(value = "/api/task")

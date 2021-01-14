@@ -1,4 +1,4 @@
-package com.task.tasklist.service;
+package com.task.tasklist.services;
 
 import java.util.List;
 import java.util.Optional;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.task.tasklist.entities.Task;
-import com.task.tasklist.exception.TaskNotFoundException;
+import com.task.tasklist.exceptions.TaskNotFoundException;
 import com.task.tasklist.repositories.TaskRepositorie;
 
 @Service
