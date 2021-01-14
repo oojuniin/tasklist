@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.task.tasklist.entities.Task;
 import com.task.tasklist.exception.TaskNotFoundException;
@@ -16,15 +17,18 @@ public class TaskService {
 	@Autowired
 	private TaskRepositorie taskRepositorie;
 
+	@Transactional(readOnly = true)
 	public List<Task> findAll() {
 		List<Task> list = taskRepositorie.findAll();
 		return list;
 	}
 
+	@Transactional(readOnly = true)
 	public Optional<Task> findById(Long id) {
 		return taskRepositorie.findById(id);
 	}
 
+	@Transactional(readOnly = true)
 	public Task findByTitle(Task task) {
 		task = taskRepositorie.findByTitle(task.getTitle());
 		if (task == null) {
@@ -33,10 +37,12 @@ public class TaskService {
 		return task;
 	}
 
+	@Transactional
 	public Task save(Task task) {
 		return taskRepositorie.save(task);
 	}
 	
+	@Transactional
 	public Task update(Long id, Task intask){
 		
 		Task task = taskRepositorie.findById(id).orElseThrow(() -> new TaskNotFoundException("No product with id: " + id));
@@ -53,6 +59,7 @@ public class TaskService {
 		return newTask;
 	}
 	
+	@Transactional
 	public Optional<Task> delete(Long id) {
 		Optional<Task> task = taskRepositorie.findById(id);
 		
