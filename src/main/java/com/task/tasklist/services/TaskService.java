@@ -41,7 +41,7 @@ public class TaskService {
 	public Task save(Task task) {
 		return taskRepositorie.save(task);
 	}
-	
+
 	@Transactional
 	public Task update(Long id, Task intask){
 		
